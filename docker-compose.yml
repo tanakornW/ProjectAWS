@@ -1,0 +1,16 @@
+version: '2'
+services:
+  netcoremvcpostgres:
+    container_name: webapi
+    build: .
+    ports:
+      - "59618:59618"
+    restart: always
+    command: "dotnet OSGB.Api.dll"
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - netcoremvc
+networks:
+    netcoremvc:
+      driver: bridge
